@@ -8,16 +8,11 @@ var centerSideImageElement = document.getElementById('center_item_img');
 var rightSideImageElement = document.getElementById('right_item_img');
 var imagesSection = document.getElementById('all_items'); // related to a function down , what is a section and why we use it ?
 
-// var currentLeftSideImage;
-// var currentCenterSideImage; 
-// var currentRightSideImage;
+var currentLeftSideImage;
+var currentCenterSideImage; 
+var currentRightSideImage;
 
 var totalClicks = 0; // to the loop down , we use it to limit the user clicks 
-
-
-
-
-
 
 
 // All the Global var: to save the objects
@@ -79,9 +74,16 @@ do {
        rightImageIndex= Math.floor((Math.random() * allItems.length));
     } while (rightImageIndex === centerImageIndex || rightImageIndex=== leftImageIndex);
      
+// for (i=0 ; i< allItems.length; i++){
+// allItems.pop(leftImageIndex,rightImageIndex,centerImageIndex),
+// displayImages();
+// allItems.push(leftImageIndex,rightImageIndex,centerImageIndex);
+//}
+
+
     
 displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
-  }
+  }; 
  
 
 // trying the loops:
@@ -95,7 +97,10 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
     //   rightImageIndex = Math.floor((Math.random() * allItems.length));
     // } while(leftImageIndex === rightImageIndex);
   
-    
+
+
+
+
 
   function displayImages(leftIndex, centerIndex, rightIndex){
     currentLeftSideImage = allItems[leftIndex];              //??
@@ -111,6 +116,13 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
   }
   
   displayRandomImages();
+
+  // lab 12: if the current image is the same old image then  dont display ; while 
+
+
+  // while ( displayRandomImages !== currentCenterSideImage && displayRandomImages !== currentLeftSideImage && displayRandomImages !== currentRightSideImage ) {
+  //   displayRandomImages();
+  // }
   
 
 
@@ -118,11 +130,6 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
 
   imagesSection.addEventListener('click',handleVote);
 
-
-
-  var currentLeftSideImage;
-var currentCenterSideImage; 
-var currentRightSideImage;
 
 
   function handleVote(event){
@@ -159,8 +166,57 @@ var resultsList = document.getElementById('finalResult');
       listItem.textContent =  allItems[i].itemName + ' had ' + allItems[i].votes+ '  votes and was shown ' +  allItems[i].timesDisplayed +' times ';
       resultsList.appendChild(listItem);
     }
+
+    var allVote=[];
+    for (var j=0; j< allItems.length;j++) {
+     allVote.push(allItems[j].votes);   // That's how I add the values in an array 
+    };
+     var allName=[];
+     for(var b=0; b< allItems.length ; b++) {
+       allName.push(allItems[b].itemName);
+       
+     };
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: allName,
+        datasets: [{
+            label: '# of Votes',
+            data: allVote , // I'll do a loop outside the chart so i can use this 
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: { 
+        scales: {
+            yAxes: [{ allVote,
+                ticks: {  allName, 
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});      // What happened here? we moved the chart inside the function because i want the results to appear after i'm done with my clicks 
+
+
   }
-  displayResults(); 
+
 
   // Banana Slicer had 3 votes and was shown 5 times 
 
@@ -178,3 +234,23 @@ document.getElementById('test').addEventListener('click', function(event){
   var per = event.timesDisplayed / this.votes * 100;
   alert(per);
 });
+
+
+
+
+
+// Lab-12: 
+
+// (1) Ask baraa abot the deffrent image in ubsequent iterations.
+
+
+// (2) track how much shown? 
+
+
+// (3) Chart 
+
+
+
+
+
+ 
