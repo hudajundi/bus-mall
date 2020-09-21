@@ -8,9 +8,9 @@ var centerSideImageElement = document.getElementById('center_item_img');
 var rightSideImageElement = document.getElementById('right_item_img');
 var imagesSection = document.getElementById('all_items'); // related to a function down , what is a section and why we use it ?
 
-var currentLeftSideImage;
-var currentCenterSideImage; 
-var currentRightSideImage;
+// var currentLeftSideImage;
+// var currentCenterSideImage; 
+// var currentRightSideImage;
 
 var totalClicks = 0; // to the loop down , we use it to limit the user clicks 
 
@@ -29,7 +29,7 @@ console.log(allItems);
 function ItemImage(itemName, link) {    // these proparities from the question 
   this.itemName = itemName;
   this.link = link;
-  this.votes = 0;         // what? 
+  this.votes = 0;         // what?   vote = click
   this.timesDisplayed = 0;     //what?
   allItems.push(this);            // to put the results into an array 
 
@@ -77,10 +77,12 @@ function ItemImage(itemName, link) {    // these proparities from the question
 do {
       
        rightImageIndex= Math.floor((Math.random() * allItems.length));
-    } while (rightImageIndex === centerImageIndex && leftImageIndex);
+    } while (rightImageIndex === centerImageIndex || rightImageIndex=== leftImageIndex);
      
     
-
+displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
+  }
+ 
 
 // trying the loops:
     // if(rightImageIndex !== centerImageIndex && leftImageIndex){
@@ -93,9 +95,7 @@ do {
     //   rightImageIndex = Math.floor((Math.random() * allItems.length));
     // } while(leftImageIndex === rightImageIndex);
   
-    displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
-  }
- 
+    
 
   function displayImages(leftIndex, centerIndex, rightIndex){
     currentLeftSideImage = allItems[leftIndex];              //??
@@ -118,10 +118,17 @@ do {
 
   imagesSection.addEventListener('click',handleVote);
 
+
+
+  var currentLeftSideImage;
+var currentCenterSideImage; 
+var currentRightSideImage;
+
+
   function handleVote(event){
     var clickedImage;
   
-    if(event.target.id === 'left_item_img'){
+    if(event.target.id === 'left_item_img'){ // we use this so the function tell me what image has shown 
       clickedImage = currentLeftSideImage;
     } else if(event.target.id === 'center_item_img'){
       clickedImage = currentCenterSideImage;
