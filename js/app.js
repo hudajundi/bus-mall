@@ -86,17 +86,6 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
   }; 
  
 
-// trying the loops:
-    // if(rightImageIndex !== centerImageIndex && leftImageIndex){
-          // };
-    // do{
-    //   rightImageIndex= Math.floor((Math.random() * allItems.length));
-    // } while (rightImageIndex !== centerImageIndex && leftImageIndex)
-  
-    // do{
-    //   rightImageIndex = Math.floor((Math.random() * allItems.length));
-    // } while(leftImageIndex === rightImageIndex);
-  
 
 
 
@@ -117,17 +106,7 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
   
   displayRandomImages();
 
-  // lab 12: if the current image is the same old image then  dont display ; while 
-
-
-  // while ( displayRandomImages !== currentCenterSideImage && displayRandomImages !== currentLeftSideImage && displayRandomImages !== currentRightSideImage ) {
-  //   displayRandomImages();
-  // }
   
-
-
-// why we do this ?? 
-
   imagesSection.addEventListener('click',handleVote);
 
 
@@ -237,20 +216,34 @@ document.getElementById('test').addEventListener('click', function(event){
 
 
 
+     
+//to ensure that the result dont repeat .. TRY to contiue lab 12 
+// function renderNewItems() {
+
+  
+//   var irrit = [ItemImage.leftImageIndex, ItemImage.centerImageIndex, ItemImage.rightImageIndex];
+
+//   do {
+
+//     ItemImage.leftImageIndex= displayRandomImages();
+
+//   } while (irrit.includes(ItemImage.leftImageIndex))
+
+//   irrit.push(ItemImage.leftImageIndex);
+
+//   do {
+
+//     ItemImage.centerImageIndex = displayRandomImages();
+
+//   } while (irrit.includes(ItemImage.centerImageIndex))
+
+//   irrit.push(ItemImage.centerImageIndex);
+
+//   do {
+
+//     ItemImage.rightImageIndex = displayRandomImages();
+
+//   } while (irrit.includes(ItemImage.rightImageIndex));
 
 
-// Lab-12: 
 
-// (1) Ask baraa abot the deffrent image in ubsequent iterations.
-
-
-// (2) track how much shown? 
-
-
-// (3) Chart 
-
-
-
-
-
- 
