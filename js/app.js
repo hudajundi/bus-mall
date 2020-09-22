@@ -262,4 +262,4 @@ getImage();
 // document.getElementById("result").innerHTML = getImage(); 
 // console.log(getImage); 
 
- // i should know how to know the last images appear 
+ // i should know how to know the last images appear ?? 
