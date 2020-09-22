@@ -74,19 +74,30 @@ do {
        rightImageIndex= Math.floor((Math.random() * allItems.length));
     } while (rightImageIndex === centerImageIndex || rightImageIndex=== leftImageIndex);
      
-// for (i=0 ; i< allItems.length; i++){
-// allItems.pop(leftImageIndex,rightImageIndex,centerImageIndex),
-// displayImages();
-// allItems.push(leftImageIndex,rightImageIndex,centerImageIndex);
-//}
 
-
+ 
     
-displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
+displayRandomImages(leftImageIndex,centerImageIndex, rightImageIndex);
   }; 
  
 
+var noRepeatArray = [];
+    function displayImages(){
+      leftImageIndex = allItems[displayRandomImages(0, allItems.length-1)];
+      centerImageIndex = allItems[displayRandomImages(0, allItems.length-1)];
+      rightImageIndex = allItems[displayRandomImages(0, allItems.length-1)];
+      while(leftImageIndex.itemName === rightImageIndex.itemName || leftImageIndex.itemName === centerImageIndex.itemName || rightImageIndex.itemName === centerImageIndex.itemName || noRepeatArray.includes(leftImageIndex) || noRepeatArray.includes(centerImageIndex) || noRepeatArray.includes(rightImageIndex)){
+        leftImageIndex = allItems[displayRandomImages(0, allItems.length-1)];
+        centerImageIndex = allItems[displayRandomImages(0, allItems.length-1)];
+        rightImageIndex = allItems[displayRandomImages(0, allItems.length-1)];
+      }
+      noRepeatArray = [];
+      noRepeatArray.push(leftImageIndex);
+      noRepeatArray.push(rightImageIndex);
+      noRepeatArray.push(centerImageIndex);
 
+  }
+  
 
 
 
@@ -102,9 +113,13 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
     leftSideImageElement.setAttribute('src',currentLeftSideImage.link);
     centerSideImageElement.setAttribute('src', currentCenterSideImage.link);
     rightSideImageElement.setAttribute('src',currentRightSideImage.link);
-  }
+
+
+displayImages();
+
+
+   
   
-  displayRandomImages();
 
   
   imagesSection.addEventListener('click',handleVote);
@@ -192,58 +207,5 @@ var myChart = new Chart(ctx, {
         }
     }
 });      // What happened here? we moved the chart inside the function because i want the results to appear after i'm done with my clicks 
-
-
+  } 
   }
-
-
-  // Banana Slicer had 3 votes and was shown 5 times 
-
-
-
-
-
-
-
-
-
-// The Persange : 
-
-document.getElementById('test').addEventListener('click', function(event){
-  var per = event.timesDisplayed / this.votes * 100;
-  alert(per);
-});
-
-
-
-     
-//to ensure that the result dont repeat .. TRY to contiue lab 12 
-// function renderNewItems() {
-
-  
-//   var irrit = [ItemImage.leftImageIndex, ItemImage.centerImageIndex, ItemImage.rightImageIndex];
-
-//   do {
-
-//     ItemImage.leftImageIndex= displayRandomImages();
-
-//   } while (irrit.includes(ItemImage.leftImageIndex))
-
-//   irrit.push(ItemImage.leftImageIndex);
-
-//   do {
-
-//     ItemImage.centerImageIndex = displayRandomImages();
-
-//   } while (irrit.includes(ItemImage.centerImageIndex))
-
-//   irrit.push(ItemImage.centerImageIndex);
-
-//   do {
-
-//     ItemImage.rightImageIndex = displayRandomImages();
-
-//   } while (irrit.includes(ItemImage.rightImageIndex));
-
-
-
