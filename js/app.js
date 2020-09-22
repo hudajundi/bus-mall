@@ -230,3 +230,26 @@ document.getElementById('test').addEventListener('click', function (event) {
 //     ItemImage.leftImageIndex= displayRandomImages();
 
  // i should know how to know the last images appear ?? 
+// Lab-13: JSON 
+
+function getImage() {
+  var mallData = JSON.parse(localStorage.getItem('item'))
+  if (mallData) {
+    allItems = mallData;
+  }
+displayResults();
+ 
+
+function setImages() {
+  var mallString = JSON.stringify(allItems)
+  localStorage.setImages('item', JSON.stringify(allItems))
+
+}
+}
+
+getImage();
+// setImages();
+// document.getElementById("result").innerHTML = getImage(); 
+// console.log(getImage); 
+
+ // i should know how to know the last images appear 
