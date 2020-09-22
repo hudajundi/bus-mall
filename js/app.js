@@ -228,22 +228,3 @@ document.getElementById('test').addEventListener('click', function(event){
 //     ItemImage.leftImageIndex= displayRandomImages();
 
 //   } while (irrit.includes(ItemImage.leftImageIndex))
-
-//   irrit.push(ItemImage.leftImageIndex);
-
-//   do {
-
-//     ItemImage.centerImageIndex = displayRandomImages();
-
-//   } while (irrit.includes(ItemImage.centerImageIndex))
-
-//   irrit.push(ItemImage.centerImageIndex);
-
-//   do {
-
-//     ItemImage.rightImageIndex = displayRandomImages();
-
-//   } while (irrit.includes(ItemImage.rightImageIndex));
-
-
-
