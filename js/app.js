@@ -86,17 +86,6 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
   }; 
  
 
-// trying the loops:
-    // if(rightImageIndex !== centerImageIndex && leftImageIndex){
-          // };
-    // do{
-    //   rightImageIndex= Math.floor((Math.random() * allItems.length));
-    // } while (rightImageIndex !== centerImageIndex && leftImageIndex)
-  
-    // do{
-    //   rightImageIndex = Math.floor((Math.random() * allItems.length));
-    // } while(leftImageIndex === rightImageIndex);
-  
 
 
 
@@ -117,17 +106,7 @@ displayImages(leftImageIndex,centerImageIndex, rightImageIndex);
   
   displayRandomImages();
 
-  // lab 12: if the current image is the same old image then  dont display ; while 
-
-
-  // while ( displayRandomImages !== currentCenterSideImage && displayRandomImages !== currentLeftSideImage && displayRandomImages !== currentRightSideImage ) {
-  //   displayRandomImages();
-  // }
   
-
-
-// why we do this ?? 
-
   imagesSection.addEventListener('click',handleVote);
 
 
@@ -237,29 +216,15 @@ document.getElementById('test').addEventListener('click', function(event){
 
 
 
+     
+//to ensure that the result dont repeat .. TRY to contiue lab 12 
+// function renderNewItems() {
 
+  
+//   var irrit = [ItemImage.leftImageIndex, ItemImage.centerImageIndex, ItemImage.rightImageIndex];
 
-// Lab-13: JSON 
+//   do {
 
-function getImage() {
-  var mallData = JSON.parse(localStorage.getItem('item'))
-  if (mallData) {
-    allItems = mallData;
-  }
-displayResults();
- 
+//     ItemImage.leftImageIndex= displayRandomImages();
 
-function setImages() {
-  var mallString = JSON.stringify(allItems)
-  localStorage.setImages('item', JSON.stringify(allItems))
-
-}
-}
-
-
-getImage();
-// setImages();
-// document.getElementById("result").innerHTML = getImage(); 
-// console.log(getImage); 
-
- // i should know how to know the last images appear 
+//   } while (irrit.includes(ItemImage.leftImageIndex))
