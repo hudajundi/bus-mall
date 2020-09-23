@@ -34,6 +34,13 @@ function ItemImage(itemName, link) {    // these proparities from the question
 
 //   // creating objects   : we add the imgs 
 
+if (localStorage.getItem('sumVotes') ) {
+  allItems= JSON.parse(localStorage.getItem('sumVotes'))
+} else {
+  
+
+
+
 new ItemImage('Bag', 'img/bag.jpg');      //Q: why we used "new"? to create the object with the arguments (name, link)
 new ItemImage('Banana', 'img/banana.jpg');
 new ItemImage('Bathroom', 'img/bathroom.jpg');
@@ -54,7 +61,7 @@ new ItemImage('Unicorn', 'img/unicorn.jpg');
 new ItemImage('USB', 'img/usb.gif');
 new ItemImage('Water-can', 'img/water-can.jpg');
 new ItemImage('Wine-glass', 'img/wine-glass.jpg');
-
+}
 
 
 
@@ -201,55 +208,56 @@ function displayResults() {
 
 // Banana Slicer had 3 votes and was shown 5 times 
 
-
-
-
-
-
-
-
-
-// The Persange : 
-
-document.getElementById('test').addEventListener('click', function (event) {
-  var per = event.timesDisplayed / this.votes * 100;
-  alert(per);
-});
-
-
-
-
-//to ensure that the result dont repeat .. TRY to contiue lab 12 
-// function renderNewItems() {
-
-
-//   var irrit = [ItemImage.leftImageIndex, ItemImage.centerImageIndex, ItemImage.rightImageIndex];
-
-//   do {
-
-//     ItemImage.leftImageIndex= displayRandomImages();
-
- // i should know how to know the last images appear ?? 
-// Lab-13: JSON 
-
-function getImage() {
-  var mallData = JSON.parse(localStorage.getItem('item'))
-  if (mallData) {
-    allItems = mallData;
-  }
 displayResults();
+
+localStorage.setItem('sumVotes', JSON.stringify(allItems));
+console.log(localStorage);
+
+
+
+
+
+// // The Persange : 
+
+// document.getElementById('test').addEventListener('click', function (event) {
+//   var per = event.timesDisplayed / this.votes * 100;
+//   alert(per);
+// });
+
+
+
+
+// //to ensure that the result dont repeat .. TRY to contiue lab 12 
+// // function renderNewItems() {
+
+
+// //   var irrit = [ItemImage.leftImageIndex, ItemImage.centerImageIndex, ItemImage.rightImageIndex];
+
+// //   do {
+
+// //     ItemImage.leftImageIndex= displayRandomImages();
+
+//  // i should know how to know the last images appear ?? 
+// // Lab-13: JSON 
+
+// function getImage() {
+//   var mallData = JSON.parse(localStorage.getItem('item'))
+//   if (mallData) {
+//     allItems = mallData;
+//   }
+
  
 
-function setImages() {
-  var mallString = JSON.stringify(allItems)
-  localStorage.setImages('item', JSON.stringify(allItems))
+// function setImages() {
+//   var mallString = JSON.stringify(allItems)
+//   localStorage.setImages('item', JSON.stringify(allItems))
 
-}
-}
+// }
+// }
 
-getImage();
-// setImages();
-// document.getElementById("result").innerHTML = getImage(); 
-// console.log(getImage); 
+// getImage();
+// // setImages();
+// // document.getElementById("result").innerHTML = getImage(); 
+// // console.log(getImage); 
 
- // i should know how to know the last images appear 
+//  // i should know how to know the last images appear 
