@@ -1,5 +1,5 @@
 body{
-    background-color: aquamarine;
+    background-color: bisque;
 }
 
 h1{
@@ -13,6 +13,26 @@ h2{
 }
 
 
+
+
 img{
-    width: 300px;
+    margin: 30px 10px 30px 30px;
+    border: solid;
+    width: 15pc;
+    height: 15pc;
+    border-radius: 25%;
+}
+
+ul{
+    text-align: center;
+    width: 40pc;
+    height: 35pc;
+    
+}
+li{
+    border: solid;
+    border-color: teal;
+    margin: 10px;
+    font-size: 20px;
+    font-style: unset;
 }
